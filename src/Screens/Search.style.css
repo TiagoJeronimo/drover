@@ -1,0 +1,14 @@
+.screenContainer {
+  display: flex;
+  flex-direction: row;
+  width: 960px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.vehicleDisplayContainer {
+  max-width: 75%; }
+
+.vehicleListContainer {
+  display: flex;
+  flex-wrap: wrap; }
