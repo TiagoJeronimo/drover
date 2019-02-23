@@ -21,7 +21,7 @@ class FilterDisplay extends Component {
         } = this.props
 
         return (
-            <div className='filterDisplayContainer'>
+            <div className='filterDisplay-container'>
                 <FilterDropdown 
                     filterName='vehicle_make'
                     labelText='Car Make'

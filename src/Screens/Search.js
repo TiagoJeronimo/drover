@@ -62,16 +62,18 @@ class Search extends Component {
     } = this.state
 
     return (
-      <div className='screenContainer'>
+      <div className='search-mainContainer'>
         {metadata.aggregations &&
           <FilterDisplay 
             aggregations={metadata.aggregations}
             handleFilterChange={this.handleFilterChange} 
           />
         }
-        <div className='vehicleDisplayContainer'>
-        {`${metadata.total_count} cars available`}
-          <div className='vehicleListContainer'>
+        <div className='search-displayContainer'>
+          <div className='search-carsAvailableText'>
+            {`${metadata.total_count} cars available`}
+          </div>
+          <div className='search-listContainer'>
             {vehicleList.map((vehicle) => (
               <VehicleDisplay
                 key={vehicle.id}

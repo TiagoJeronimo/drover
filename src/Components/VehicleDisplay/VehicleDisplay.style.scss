@@ -1,5 +1,5 @@
 
-.vehicleDisplayContainer {
+.vehicleDisplay-container {
     background-color: rgb(245, 245, 245);
     padding: 16px;
     margin: 4px;
@@ -8,34 +8,34 @@
     max-width: 50%
 }
 
-.vehicleImage {
+.vehicleDisplay-vehicleImage {
     object-fit: contain;
     width: 100%;
     height: auto;
 }
 
-.headerInfo {
+.vehicleDisplay-headerInfo {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
 }
 
-.pricingText {
+.vehicleDisplay-pricingText {
     //font-family: 'GT-Walsheim-Pro-Medium';
     font-size: 22px;
     font-weight: 500;
 }
 
-.pricingSubtext {
+.vehicleDisplay-pricingSubtext {
     font-size: 12px;
 }
 
-.vehicleYear {
+.vehicleDisplay-vehicleYear {
     color: rgb(0, 30, 255);
     font-size: 14px;
 }
 
-.vehicleModel {
+.vehicleDisplay-vehicleModel {
     font-size: 18px;
     padding: 1px 0; 
 }

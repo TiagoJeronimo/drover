@@ -5,21 +5,21 @@ const VehicleDisplay = ({
         vehicle,
         pricingConsumer, 
     }) => (
-    <div className="vehicleDisplayContainer">
-        <div className="headerInfo">
-            <div className='pricingText'>
+    <div className="vehicleDisplay-container">
+        <div className="vehicleDisplay-headerInfo">
+            <div className='vehicleDisplay-pricingText'>
                 {`£ ${pricingConsumer}`}
             </div>
-            <div className='pricingSubtext'>
+            <div className='vehicleDisplay-pricingSubtext'>
                 A month
             </div>
         </div>
-        <img src={vehicle.stock_image.small_image_url} alt="Vehicle" className="vehicleImage"/>
-        <div className="footerInfo">
-            <div className='vehicleYear'>
+        <img src={vehicle.stock_image.small_image_url} alt="Vehicle" className="vehicleDisplay-vehicleImage"/>
+        <div className="vehicleDisplay-footerInfo">
+            <div className='vehicleDisplay-vehicleYear'>
                 {`${vehicle.year} ${vehicle.vehicle_make}`}
             </div>
-            <div className='vehicleModel'>
+            <div className='vehicleDisplay-vehicleModel'>
                 {`${vehicle.vehicle_model} - ${vehicle.engine_size_information}`}
             </div>
         </div>
