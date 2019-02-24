@@ -32,6 +32,7 @@ class FilterDisplay extends Component {
                     filterName='fuel'
                     labelText='Fuel Type'
                     dropdownOptions={this.formatOptions(aggregations.fuel)} 
+                    handleFilterChange={handleFilterChange}
                 />
             </div>
         )

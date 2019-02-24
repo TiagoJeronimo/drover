@@ -1,0 +1,18 @@
+
+.paginationButton-button {
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    font-weight: bold;
+    height: 30px;
+    width: 30px;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin: 0 1px;
+    &--active {
+        color: white;
+        background: rgb(0, 30, 255);
+    }
+}

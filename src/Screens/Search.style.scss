@@ -22,3 +22,20 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.search-paginationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 16px;
+}
+
+.search-paginationText {
+    margin-bottom: 16px;
+    font-size: 16px;
+    letter-spacing: 0px;
+}
+
+.search-paginationButtons {
+    
+}
