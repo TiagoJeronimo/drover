@@ -1,11 +1,8 @@
 
 .vehicleDisplay-container {
-    background-color: rgb(245, 245, 245);
     padding: 16px;
     margin: 4px;
-    flex-grow: 1;
-    min-width: 25%;
-    max-width: 50%
+    background-color: rgb(245, 245, 245);
 }
 
 .vehicleDisplay-vehicleImage {
@@ -21,7 +18,6 @@
 }
 
 .vehicleDisplay-pricingText {
-    //font-family: 'GT-Walsheim-Pro-Medium';
     font-size: 22px;
     font-weight: 500;
 }

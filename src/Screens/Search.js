@@ -19,7 +19,7 @@ class Search extends Component {
       vehicle_type: "Consumer",	
       per_page: 20,
     },
-    filters: []
+    filters: {}
   }
 
   componentDidMount() {
@@ -75,24 +75,51 @@ class Search extends Component {
   )
 
   handleFilterChange = (e, { name, value }) => {
-    this.setState({
+    this.setState(prevState => ({
       searchRequestBody: {
-        ...this.state.searchRequestBody,
+        ...prevState.searchRequestBody,
         'page': 1,
       },
-      filters: [...this.state.filters, value]
-    }, () => {
+      filters: {
+        ...prevState.filters,
+        [name]: value,
+      }
+    }), () => {
       this.setSearchBodyAttribute(name, value)
     })
   }
+
+  handleCloseFilter = (filterCategory) => {
+    const newFilterList = Object.assign({} ,this.state.filters)
+    const newSearchRequestBody = Object.assign({} ,this.state.searchRequestBody)
+    delete newFilterList[filterCategory]
+    delete newSearchRequestBody[filterCategory]
+
+    this.setState({
+      searchRequestBody: newSearchRequestBody,
+      filters: newFilterList,
+    }, () => this.searchCar())
+  }
+
+  // handleClearFilters = () => {
+  //   const newSearchRequestBody = Object.assign({} ,this.state.searchRequestBody)
+  //   this.state.filters.map((filter) => (
+  //     delete newSearchRequestBody[filter]
+  //   ))
+
+  //   const newFilterList = Object.assign({} ,this.state.filters)
+  //   this.setState({
+  //     filters: newSearchRequestBody
+  //   })
+  // }
   
   setSearchBodyAttribute = (attributeName, value, searchCar=true) => {
-    this.setState({
+    this.setState(prevState => ({
       searchRequestBody: {
-        ...this.state.searchRequestBody,
+        ...prevState.searchRequestBody,
         [attributeName]: value,
       }
-    }, () => {
+    }), () => {
       if (searchCar) {
         this.searchCar()
       }
@@ -119,13 +146,25 @@ class Search extends Component {
           <div className='search-carsAvailableText'>
             {`${metadata.total_count} cars available`}
           </div>
-          {filters.map((filter, index) => (
-            <FilterBreadcrumb 
-              filter={filter} 
-              key={`filter${index}`}
-            />
-          ))}
-          <div className='search-listContainer'>
+          <div className='search-filtersContainer'>
+            {Object.keys(filters).map((key, index) => (
+              <FilterBreadcrumb 
+                filterCategory={key}
+                filterName={filters[key]}
+                key={`filter${index}`}
+                handleCloseFilter={this.handleCloseFilter}
+              />
+            ))}
+            {Object.keys(filters).length > 0 && 
+              <button 
+                className='filterBreadcrumb-button'
+                onClick={this.handleClearFilters}
+              >
+                Clear filters
+              </button>
+            }
+          </div>
+          <div className='search-listContainer row'>
             {vehicleList.map((vehicle) => (
               <VehicleDisplay
                 key={vehicle.id}

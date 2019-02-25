@@ -1,12 +1,13 @@
 import React from 'react'
 import './FilterBreadcrumb.style.scss'
 
-const FilterBreadcrumb = ({filter, handleCloseFilter}) => (
+const FilterBreadcrumb = ({filterCategory, filterName, handleCloseFilter}) => (
     <div className='filterBreadcrumb-container'>
-        {filter}
+        {console.log("filter", filterName)}
+        {filterName}
         <button 
             className='filterBreadcrumb-button'
-            onClick={() => handleCloseFilter(filter)}
+            onClick={() => handleCloseFilter(filterCategory)}
         >
             X
         </button>

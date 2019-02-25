@@ -18,9 +18,8 @@
     max-width: 75%;
 }
 
-.search-listContainer {
-    display: flex;
-    flex-wrap: wrap;
+.search-listContainer > div {
+    padding: 0;
 }
 
 .search-paginationContainer {
@@ -34,6 +33,11 @@
     margin-bottom: 16px;
     font-size: 16px;
     letter-spacing: 0px;
+}
+
+.search-filtersContainer {
+    display: flex;
+    flex-direction: row;
 }
 
 .search-paginationButtons {

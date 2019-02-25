@@ -1,8 +1,15 @@
 
 .filterBreadcrumb-container {
-
+    background-color: rgb(245, 245, 245);
+    padding: 8px 4px;
+    margin-right: 8px;
 }
 
 .filterBreadcrumb-button {
-    
+    background: none;
+    border: none;
+    color: rgb(0, 30, 255);
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
 }
