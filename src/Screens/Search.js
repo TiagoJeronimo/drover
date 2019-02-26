@@ -32,7 +32,10 @@ class Search extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(this.state.searchRequestBody),
+      body: JSON.stringify({
+        ...this.state.searchRequestBody,
+        ...this.state.filters,
+      }),
     })
     .then(response => response.json())
     .then((json) => {
@@ -50,8 +53,12 @@ class Search extends Component {
   )
 
   handleChangePage = (pageNumber) => {
-    console.log("aaa")
-    this.setSearchBodyAttribute('page', pageNumber)
+    this.setState(prevState => ({
+      searchRequestBody: {
+        ...prevState.searchRequestBody,
+        'page': pageNumber,
+      },
+    }), () => this.searchCar())
   }
 
   getPaginationButtons = () => {
@@ -84,47 +91,36 @@ class Search extends Component {
         ...prevState.filters,
         [name]: value,
       }
-    }), () => {
-      this.setSearchBodyAttribute(name, value)
-    })
+    }), () => this.searchCar())
   }
 
   handleCloseFilter = (filterCategory) => {
     const newFilterList = Object.assign({} ,this.state.filters)
-    const newSearchRequestBody = Object.assign({} ,this.state.searchRequestBody)
     delete newFilterList[filterCategory]
-    delete newSearchRequestBody[filterCategory]
 
     this.setState({
-      searchRequestBody: newSearchRequestBody,
       filters: newFilterList,
     }, () => this.searchCar())
   }
 
-  // handleClearFilters = () => {
-  //   const newSearchRequestBody = Object.assign({} ,this.state.searchRequestBody)
-  //   this.state.filters.map((filter) => (
-  //     delete newSearchRequestBody[filter]
-  //   ))
-
-  //   const newFilterList = Object.assign({} ,this.state.filters)
-  //   this.setState({
-  //     filters: newSearchRequestBody
+  handleClearFilters = () => {
+    this.setState({
+      filters: {}
+    }, () => this.searchCar())
+  }
+  
+  // setSearchBodyAttribute = (attributeName, value, searchCar=true) => {
+  //   this.setState(prevState => ({
+  //     searchRequestBody: {
+  //       ...prevState.searchRequestBody,
+  //       [attributeName]: value,
+  //     }
+  //   }), () => {
+  //     if (searchCar) {
+  //       this.searchCar()
+  //     }
   //   })
   // }
-  
-  setSearchBodyAttribute = (attributeName, value, searchCar=true) => {
-    this.setState(prevState => ({
-      searchRequestBody: {
-        ...prevState.searchRequestBody,
-        [attributeName]: value,
-      }
-    }), () => {
-      if (searchCar) {
-        this.searchCar()
-      }
-    })
-  }
 
   render() {
     const {
