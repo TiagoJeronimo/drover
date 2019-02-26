@@ -5,7 +5,7 @@ import FilterDropdown from '../FilterDropdown/FilterDropdown';
 class FilterDisplay extends Component {
 
     formatOptions = (options, showQuantity=true) => {
-        const optionArray = []
+        const optionArray = [{text: 'Any', value: 'any'}]
         let text = ''
         Object.keys(options).forEach((key) => {
           text = `${key} ${showQuantity && `(${options[key]})`}`
@@ -18,6 +18,7 @@ class FilterDisplay extends Component {
         const {
             aggregations,
             handleFilterChange,
+            selectedFilters,
         } = this.props
 
         return (
@@ -27,12 +28,35 @@ class FilterDisplay extends Component {
                     labelText='Car Make'
                     dropdownOptions={this.formatOptions(aggregations.vehicle_make)} 
                     handleFilterChange={handleFilterChange}
+                    selectedFilter={!selectedFilters['vehicle_make'] ? 'Any' : ''}
+                />
+                <FilterDropdown 
+                    filterName='transmission'
+                    labelText='Gearbox'
+                    dropdownOptions={this.formatOptions(aggregations.transmission)} 
+                    handleFilterChange={handleFilterChange}
+                    selectedFilter={!selectedFilters['transmission'] ? 'Any' : ''}
                 />
                 <FilterDropdown 
                     filterName='fuel'
                     labelText='Fuel Type'
                     dropdownOptions={this.formatOptions(aggregations.fuel)} 
                     handleFilterChange={handleFilterChange}
+                    selectedFilter={!selectedFilters['fuel'] ? 'Any' : ''}
+                />
+                {/* <FilterDropdown 
+                    filterName='year'
+                    labelText='Year'
+                    dropdownOptions={this.formatOptions(aggregations.year)} 
+                    handleFilterChange={handleFilterChange}
+                    selectedFilter={!selectedFilters['year'] ? 'Any' : ''}
+                /> */}
+                <FilterDropdown 
+                    filterName='body_type'
+                    labelText='Body Type'
+                    dropdownOptions={this.formatOptions(aggregations.body_information)} 
+                    handleFilterChange={handleFilterChange}
+                    selectedFilter={!selectedFilters['body_type'] ? 'Any' : ''}
                 />
             </div>
         )

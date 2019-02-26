@@ -3,7 +3,6 @@ import './FilterBreadcrumb.style.scss'
 
 const FilterBreadcrumb = ({filterCategory, filterName, handleCloseFilter}) => (
     <div className='filterBreadcrumb-container'>
-        {console.log("filter", filterName)}
         {filterName}
         <button 
             className='filterBreadcrumb-button'

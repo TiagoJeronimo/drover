@@ -2,7 +2,7 @@ import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import './FilterDropdown.style.scss'
 
-const FilterDropdown = ({filterName, labelText, dropdownOptions, handleFilterChange}) => (
+const FilterDropdown = ({filterName, labelText, dropdownOptions, handleFilterChange, selectedFilter}) => (
   <div className='filterDropdown-container'>
     <div className='filterDropdown-label'>
       {labelText}
@@ -12,6 +12,7 @@ const FilterDropdown = ({filterName, labelText, dropdownOptions, handleFilterCha
         fluid
         floating
         selection
+        text={selectedFilter}
         name={filterName}
         options={dropdownOptions}
         onChange={handleFilterChange}

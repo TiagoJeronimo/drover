@@ -9,6 +9,17 @@ import FilterBreadcrumb from '../Components/FilterBreadcrumb/FilterBreadcrumb';
 const number_of_months = 12
 const number_of_weeks = 52
 
+const filtersDropdownOptions = [
+  {
+    key: 'vehicle_make',
+    text: 'Car Make',
+  },
+  {
+    key: 'fuel',
+    text: 'Fuel Type',
+  }
+]
+
 class Search extends Component {
 
   state = {
@@ -82,16 +93,20 @@ class Search extends Component {
   )
 
   handleFilterChange = (e, { name, value }) => {
-    this.setState(prevState => ({
-      searchRequestBody: {
-        ...prevState.searchRequestBody,
-        'page': 1,
-      },
-      filters: {
-        ...prevState.filters,
-        [name]: value,
-      }
-    }), () => this.searchCar())
+    if (value === 'any') {
+      this.handleCloseFilter(name)
+    } else {
+      this.setState(prevState => ({
+        searchRequestBody: {
+          ...prevState.searchRequestBody,
+          'page': 1,
+        },
+        filters: {
+          ...prevState.filters,
+          [name]: value,
+        }
+      }), () => this.searchCar())
+    }
   }
 
   handleCloseFilter = (filterCategory) => {
@@ -109,19 +124,6 @@ class Search extends Component {
     }, () => this.searchCar())
   }
   
-  // setSearchBodyAttribute = (attributeName, value, searchCar=true) => {
-  //   this.setState(prevState => ({
-  //     searchRequestBody: {
-  //       ...prevState.searchRequestBody,
-  //       [attributeName]: value,
-  //     }
-  //   }), () => {
-  //     if (searchCar) {
-  //       this.searchCar()
-  //     }
-  //   })
-  // }
-
   render() {
     const {
       vehicleList,
@@ -135,12 +137,14 @@ class Search extends Component {
         {metadata.aggregations &&
           <FilterDisplay 
             aggregations={metadata.aggregations}
-            handleFilterChange={this.handleFilterChange} 
+            filtersDropdownOptions={filtersDropdownOptions}
+            handleFilterChange={this.handleFilterChange}
+            selectedFilters={filters}
           />
         }
         <div className='search-displayContainer'>
           <div className='search-carsAvailableText'>
-            {`${metadata.total_count} cars available`}
+            {`${metadata.total_count || 0} cars available`}
           </div>
           <div className='search-filtersContainer'>
             {Object.keys(filters).map((key, index) => (

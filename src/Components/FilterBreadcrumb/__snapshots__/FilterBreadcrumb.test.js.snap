@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBreadcrumb with normal props 1`] = `"<div class=\\"filterBreadcrumb-container\\">car<button class=\\"filterBreadcrumb-button\\">X</button></div>"`;

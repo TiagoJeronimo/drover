@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationButton with active button 1`] = `"<button class=\\"paginationButton-button paginationButton-button--active\\">2</button>"`;
+
+exports[`PaginationButton with not active button 1`] = `"<button class=\\"paginationButton-button \\">1</button>"`;
