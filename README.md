@@ -1,8 +1,8 @@
 This project presents a version of the [Drover Search Page](https://www.joindrover.com/cars/search).
 
-In the presented page you can search for cars using the filters available, you can also navigate on this list using the bellow pagination buttons.
+In the presented page you can search for cars using the filters available, you can also navigate on this list using the pagination buttons.
 
-The dropdowns and the location input where made using the package [Semantic UI React](https://react.semantic-ui.com/)
+The dropdowns and the location input were made using the package [Semantic UI React](https://react.semantic-ui.com/)
 
 Most of the components have snapshot tests, you can check below how to run them.
 
