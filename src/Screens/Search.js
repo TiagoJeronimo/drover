@@ -8,9 +8,8 @@ class Search extends Component {
     vehicleList: [],
     metadata: [],
     searchRequestBody: {
-      location: 'London, Uk',
       vehicle_type: 'Consumer',
-      per_page: 20
+      per_page: 30
     },
     filters: {}
   };
@@ -32,7 +31,6 @@ class Search extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        console.log('result', json);
         this.setState({
           vehicleList: json.data,
           metadata: json.metadata,

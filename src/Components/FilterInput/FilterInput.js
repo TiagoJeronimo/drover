@@ -10,7 +10,7 @@ const FilterInput = ({ labelText, inputFieldName, onClickInputField, handleInput
         icon: 'search',
         onClick: onClickInputField
       }}
-      placeholder="London, Uk"
+      placeholder="Any"
       name={inputFieldName}
       onChange={(e, { name, value }) => handleInputChange(name, value)}
     />
