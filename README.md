@@ -1,13 +1,12 @@
-Hello!
+This project presents a version of the [Drover Search Page](https://www.joindrover.com/cars/search).
 
-Here I present my version of the search page from [Drover Search Page](https://www.joindrover.com/cars/search).
-As I didn't get much time I tried to make a bit of everything. We have some filters and the list of cars resulting from the search of those filters.
+In the presented page you can search for cars using the filters available, you can also navigate on this list using the bellow pagination buttons.
 
-For most of the components I implemented some snapshot tests, you can check below how to run them.
+The dropdowns and the location input where made using the package [Semantic UI React](https://react.semantic-ui.com/)
 
-For the sake of simplicity of the design of the dropdowns and the location input I used the package [Semantic UI React](https://react.semantic-ui.com/)
+Most of the components have snapshot tests, you can check below how to run them.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Finally, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
