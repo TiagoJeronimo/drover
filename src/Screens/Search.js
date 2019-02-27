@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import "./Search.style.scss";
-import FilterDisplay from "../Components/FilterDisplay/FilterDisplay";
-import ResultsDisplay from "../Components/ResultsDisplay/ResultsDisplay";
+import React, { Component } from 'react';
+import './Search.style.scss';
+import FilterDisplay from '../Components/FilterDisplay/FilterDisplay';
+import ResultsDisplay from '../Components/ResultsDisplay/ResultsDisplay';
 
 class Search extends Component {
   state = {
     vehicleList: [],
     metadata: [],
     searchRequestBody: {
-      location: "London, Uk",
-      vehicle_type: "Consumer",
+      location: 'London, Uk',
+      vehicle_type: 'Consumer',
       per_page: 20
     },
     filters: {}
@@ -20,10 +20,10 @@ class Search extends Component {
   }
 
   searchCar = () => {
-    fetch("https://app.joindrover.com/api/web/vehicles", {
-      method: "POST",
+    fetch('https://app.joindrover.com/api/web/vehicles', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         ...this.state.searchRequestBody,
@@ -32,13 +32,11 @@ class Search extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        console.log("result", json);
+        console.log('result', json);
         this.setState({
           vehicleList: json.data,
           metadata: json.metadata,
-          numberOfPages: Math.ceil(
-            json.metadata.total_count / json.metadata.per_page
-          )
+          numberOfPages: Math.ceil(json.metadata.total_count / json.metadata.per_page)
         });
       });
   };
@@ -55,8 +53,8 @@ class Search extends Component {
     );
   };
 
-  handleFilterChange = (e, { name, value }) => {
-    if (value === "any") {
+  handleFilterChange = (name, value) => {
+    if (value === 'any') {
       this.handleCloseFilter(name);
     } else {
       this.setState(

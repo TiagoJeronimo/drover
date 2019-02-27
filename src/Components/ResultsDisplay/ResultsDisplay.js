@@ -1,17 +1,16 @@
-import React, { Component } from "react";
-import "./ResultsDisplay.style.scss";
-import VehicleDisplay from "../VehicleDisplay/VehicleDisplay";
-import FilterBreadcrumb from "../FilterBreadcrumb/FilterBreadcrumb";
-import PaginationButton from "../PaginationButton/PaginationButton";
+import React, { Component } from 'react';
+import './ResultsDisplay.style.scss';
+import VehicleDisplay from '../VehicleDisplay/VehicleDisplay';
+import FilterBreadcrumb from '../FilterBreadcrumb/FilterBreadcrumb';
+import PaginationButton from '../PaginationButton/PaginationButton';
 
 const number_of_months = 12;
 const number_of_weeks = 52;
 
 class ResultsDisplay extends Component {
   calculatePricing = vehicle =>
-    vehicle.price_discount_and_deposit_schedule_hash[
-      Math.round(number_of_weeks / number_of_months)
-    ].subtotal_price_pounds;
+    vehicle.price_discount_and_deposit_schedule_hash[Math.round(number_of_weeks / number_of_months)]
+      .subtotal_price_pounds;
 
   getPaginationText = metadata =>
     `Showing ${1 + metadata.per_page * (metadata.page - 1)}-${metadata.page *
@@ -59,10 +58,7 @@ class ResultsDisplay extends Component {
             />
           ))}
           {Object.keys(filters).length > 0 && (
-            <button
-              className="resultsDisplay-clearButton"
-              onClick={handleClearFilters}
-            >
+            <button className="resultsDisplay-clearButton" onClick={handleClearFilters}>
               Clear filters
             </button>
           )}
@@ -78,15 +74,9 @@ class ResultsDisplay extends Component {
         </div>
         {numberOfPages > 1 && (
           <div className="resultsDisplay-paginationContainer">
-            <div className="resultsDisplay-paginationText">
-              {this.getPaginationText(metadata)}
-            </div>
+            <div className="resultsDisplay-paginationText">{this.getPaginationText(metadata)}</div>
             <div className="resultsDisplay-paginationButtons">
-              {this.getPaginationButtons(
-                numberOfPages,
-                metadata,
-                handleChangePage
-              )}
+              {this.getPaginationButtons(numberOfPages, metadata, handleChangePage)}
             </div>
           </div>
         )}

@@ -1,37 +1,41 @@
+.vehicleDisplay-mainContainer {
+  display: flex;
+}
 
 .vehicleDisplay-container {
-    padding: 16px;
-    margin: 4px;
-    background-color: rgb(245, 245, 245);
+  flex: 1;
+  padding: 16px;
+  margin: 4px;
+  background-color: rgb(245, 245, 245);
 }
 
 .vehicleDisplay-vehicleImage {
-    object-fit: contain;
-    width: 100%;
-    height: auto;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
 }
 
 .vehicleDisplay-headerInfo {
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }
 
 .vehicleDisplay-pricingText {
-    font-size: 22px;
-    font-weight: 500;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .vehicleDisplay-pricingSubtext {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .vehicleDisplay-vehicleYear {
-    color: rgb(0, 30, 255);
-    font-size: 14px;
+  color: rgb(0, 30, 255);
+  font-size: 14px;
 }
 
 .vehicleDisplay-vehicleModel {
-    font-size: 18px;
-    padding: 1px 0; 
+  font-size: 18px;
+  padding: 1px 0;
 }

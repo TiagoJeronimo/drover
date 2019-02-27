@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import Search from './Screens/Search'
+import Search from './Screens/Search';
 
 class App extends Component {
   render() {
-    return (
-      <Search />
-    );
+    return <Search />;
   }
 }
 
